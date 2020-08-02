@@ -1,5 +1,5 @@
-# for support join here [TorrentLeech-Gdrive](https://telegram.dog/torrentleechgdrivesupport)
-# working example group [Leech Here](https://telegram.dog/torrentleechgdrive)
+# for support join here [TorrentLeech-Gdrive](https://telegram.dog/GBotStore)
+# working example group [Leech Here](https://telegram.dog/GBotStore)
 
 # Telegram Torrent Leecher 🔥🤖
 
@@ -16,11 +16,14 @@ A Telegram Torrent (and youtube-dl) Leecher based on [Pyrogram](https://github.c
     ✓ Get total size of your working cloud directory
     ✓ You can also upload files downloaded from /ytdl command to gdrive using `/ytdl gdrive` command.
     ✓ You can also deploy this on your VPS
+    ✓ Option to select either video will be uploaded as document or streamable
+    ✓ Added /renewme command to clear the downloads which are not deleted automatically.
+    ✓ Added support for youtube playlist 😐
     ✓
 
 ### Credit goes to SpEcHiDe for his Publicleech repo.
 
-## installing
+## installing...
 
 ### The Easy Way (Fork this repo and tap on deploy button)
 
@@ -65,6 +68,8 @@ class Config(Config):
 * `RCLONE_CONFIG`: Create the rclone config using the rclone.org and read the rclone section for the next.
 
 * `DESTINATION_FOLDER`: Name of your folder in ur respective drive where you want to upload the files using the bot.
+
+* `OWNER_ID`: ID of the bot owner, He/she can be able to access bot in bot only mode too.
 
 ##### Set Rclone
 
@@ -144,12 +149,18 @@ and everythin except `[NAME]`
 
 * `TELEGRAM_LEECH_COMMAND_G`
 
+* `UPLOAD_AS_DOC`: Takes two option True or False. If True file will be uploaded as document. This is for people who wants video files as document instead of streamable.
+
 * `INDEX_LINK`: (Without `/` at last of the link, otherwise u will get error) During creating index, plz fill `Default Root ID` with the id of your `DESTINATION_FOLDER` after creating. Otherwise index will not work properly.
 ## Available Commands
 
 * `/ytdl`: This command should be used as reply to a [supported link](https://ytdl-org.github.io/youtube-dl/supportedsites.html)
 
+* `/pytdl`: This command will download videos from youtube playlist link and will upload to telegram.
+
 * `/ytdl gdrive`: This will download and upload to your cloud.
+
+* `/pytdl gdrive`: This download youtube playlist and upload to your cloud.
 
 * `/leech`: This command should be used as reply to a magnetic link, a torrent link, or a direct link. [this command will SPAM the chat and send the downloads a seperate files, if there is more than one file, in the specified torrent]
 
@@ -180,6 +191,8 @@ and everythin except `[NAME]`
 * `/tleech untar`: This will untar the .tar telegram file and upload to cloud.
 
 * `/getsize`: This will give you total size of your destination folder in cloud.
+
+* `/renewme`: This will clear the remains of downloads which are not getting deleted after upload of the file or after /cancel command. 
 
 
 * [Only work with direct link for now]It is like u can add custom name as prefix of the original file name.
